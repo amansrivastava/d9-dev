@@ -1,0 +1,11 @@
+vendor
+composer.lock
+/docroot/core
+/docroot/libraries
+/docroot/modules/contrib
+/docroot/profiles/contrib
+/docroot/themes/contrib
+/docroot/sites/*/files
+/.editorconfig
+/.gitattributes
+.idea

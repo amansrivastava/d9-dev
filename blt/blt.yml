@@ -1,0 +1,10 @@
+project:
+  machine_name: d9_dev_work
+  prefix: D9
+  human_name: 'D9 Dev work'
+  profile:
+    name: lightning
+  local:
+    hostname: d9-dev-work
+cm:
+  strategy: config-split
