@@ -69,6 +69,7 @@ module:
   metatag: 0
   moderation_dashboard: 0
   moderation_sidebar: 0
+  mymodule: 0
   node: 0
   openapi: 0
   openapi_jsonapi: 0

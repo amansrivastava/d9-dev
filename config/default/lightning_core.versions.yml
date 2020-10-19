@@ -69,6 +69,7 @@ menu_ui: 9.0.7
 metatag: 1.14.0
 moderation_dashboard: 1.0.0-beta2
 moderation_sidebar: 1.4.0
+mymodule: 0.0.0
 node: 9.0.7
 openapi: 2.0.0-rc3
 openapi_jsonapi: 2.0.0-rc2
