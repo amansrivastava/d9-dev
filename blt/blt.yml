@@ -8,3 +8,5 @@ project:
     hostname: d9-dev-work
 cm:
   strategy: config-split
+  allow-overrides: true
+
