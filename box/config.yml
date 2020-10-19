@@ -14,7 +14,7 @@ vagrant_box: geerlingguy/drupal-vm
 workspace: /root
 
 # Set drupal_site_name to the project's human-readable name.
-drupal_site_name: "My BLT site"
+drupal_site_name: "D9 Dev Site"
 
 # Provide the path to the project root to Vagrant.
 vagrant_synced_folders:
