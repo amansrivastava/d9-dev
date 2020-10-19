@@ -1,0 +1,7 @@
+mymodule.custom_settings:
+  path: '/mymodule/config'
+  defaults:
+    _title: 'mymodule custom settings'
+    _form: 'Drupal\mymodule\Form\CustomSettingsForm'
+  requirements:
+    _permission: 'administer content'
