@@ -1,0 +1,14 @@
+uuid: 5625ba42-7a68-4bea-93d5-ac1a4a6d74fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.book_creator
+  module:
+    - user
+id: user_remove_role_action.book_creator
+label: 'Remove the Book creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: book_creator
