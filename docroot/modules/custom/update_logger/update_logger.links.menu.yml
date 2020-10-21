@@ -1,0 +1,6 @@
+update_logger.settings_form:
+  title: 'Update Logger'
+  description: Configure Update Logger.
+  parent: system.admin_config_development
+  route_name: update_logger.settings_form
+  weight: 10
