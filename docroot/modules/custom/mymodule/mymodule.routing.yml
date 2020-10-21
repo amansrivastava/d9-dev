@@ -4,4 +4,4 @@ mymodule.custom_settings:
     _title: 'mymodule custom settings'
     _form: 'Drupal\mymodule\Form\CustomSettingsForm'
   requirements:
-    _permission: 'administer content'
+    _permission: 'administer mymodule configuration'
