@@ -1,0 +1,14 @@
+uuid: 0d93ae29-bdc0-46ac-918f-50b57eae3c7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.book_creator
+  module:
+    - user
+id: user_add_role_action.book_creator
+label: 'Add the Book creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: book_creator

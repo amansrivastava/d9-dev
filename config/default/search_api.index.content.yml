@@ -40,6 +40,7 @@ field_settings:
       view_mode:
         'entity:node':
           article: default
+          book: default
           landing_page: full
           page: default
   status:

@@ -1,0 +1,14 @@
+uuid: cc1dac61-ff31-4c80-9ef4-4d5c6c69409c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.book_reviewer
+  module:
+    - user
+id: user_remove_role_action.book_reviewer
+label: 'Remove the Book reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: book_reviewer
