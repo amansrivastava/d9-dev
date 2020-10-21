@@ -1,0 +1,15 @@
+# Main theme library.
+global:
+  js:
+    js/theme3.js: {}
+  css:
+    base:
+      css/base/elements.css: {}
+    component:
+      css/components/header.css: {}
+      css/components/menu.css: {}
+      css/components/sidebar.css: {}
+    layout:
+      css/layouts/layout.css: {}
+    theme:
+      css/theme/print.css: { media: print }
