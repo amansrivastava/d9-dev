@@ -27,18 +27,18 @@ class RatingstarsFormatter extends FormatterBase {
     foreach ($items as $delta => $item) {
       $rating = explode(".", $item->value);
       $stars = "";
-     for($i = 0; $i < 5; $i++){
-       if($i < $rating[0]){
-         $stars .= "<i class='fa fa-star'></i>";
-         continue;
-       }
-       if(round($rating[1]/100)){
-         $stars .= "<i class=' fa-star-half-o'></i>";
-         $rating[1] = 0;
-         continue;
-       }
-       $stars .= "<i class='fa fa-star-o'></i>";
-     }
+      for ($i = 0; $i < 5; $i++) {
+        if ($i < $rating[0]) {
+          $stars .= "<i class='fa fa-star'></i>";
+          continue;
+        }
+        if (round($rating[1] / 100)) {
+          $stars .= "<i class=' fa-star-half-o'></i>";
+          $rating[1] = 0;
+          continue;
+        }
+        $stars .= "<i class='fa fa-star-o'></i>";
+      }
       $element[$delta] = [
         '#markup' => $stars,
       ];
