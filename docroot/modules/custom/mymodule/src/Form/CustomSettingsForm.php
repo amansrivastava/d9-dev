@@ -51,16 +51,6 @@ class CustomSettingsForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    /**
-     * @TODO implement Validation on form values.
-     */
-    parent::validateForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->config('mymodule.settings')
       ->set('custom_name', $form_state->getValue('custom_name'))
