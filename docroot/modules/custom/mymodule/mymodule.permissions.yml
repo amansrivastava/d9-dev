@@ -1,0 +1,4 @@
+administer mymodule configuration:
+  title: 'Administer mymodule configuration'
+  description: 'Manage mymodule custom configuration.'
+  restrict access: true
