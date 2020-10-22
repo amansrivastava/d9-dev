@@ -1,0 +1,15 @@
+.layout-content{
+  width: 60%;
+  float: left;
+  background: #efefef;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+.layout-content:last-child{
+  width: 80%;
+}
+
+.layout-content:only-child{
+  width: 100%;
+}
