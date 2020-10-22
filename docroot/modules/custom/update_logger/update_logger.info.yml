@@ -1,0 +1,6 @@
+name: update_logger
+type: module
+description: Log content update in Recent Log Messages.
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9

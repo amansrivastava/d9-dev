@@ -1,0 +1,7 @@
+update_logger.settings_form:
+  path: '/admin/config/system/update-logger'
+  defaults:
+    _title: 'Content Update Logger settings'
+    _form: 'Drupal\update_logger\Form\SettingsForm'
+  requirements:
+    _permission: 'administer update_logger configuration'
