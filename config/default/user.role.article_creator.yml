@@ -1,0 +1,25 @@
+uuid: 5b39810f-b349-4562-a661-b2dcad7de412
+langcode: en
+status: true
+dependencies: {  }
+id: article_creator
+label: 'Article creator'
+weight: 7
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access toolbar'
+  - 'configure any layout'
+  - 'create article content'
+  - 'create url aliases'
+  - 'edit own article content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view article revisions'
+  - 'view latest version'
+  - 'view own unpublished content'

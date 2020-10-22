@@ -22,6 +22,7 @@ editor: 9.0.7
 entity_block: 1.0.0-beta3
 entity_browser: 2.5.0
 entity_browser_block: 1.1.0
+entity_reference_revisions: 1.8.0
 field: 9.0.7
 field_ui: 9.0.7
 file: 9.0.7
@@ -79,6 +80,7 @@ options: 9.0.7
 page_cache: 9.0.7
 page_manager: 4.0.0-beta6
 panels: 0.0.0
+paragraphs: 1.12.0
 path: 9.0.7
 path_alias: 9.0.7
 pathauto: 1.8.0

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.article
     - node.type.book
     - node.type.landing_page
     - node.type.page
@@ -74,6 +75,7 @@ type_settings:
         - review
   entity_types:
     node:
+      - article
       - book
       - landing_page
       - page

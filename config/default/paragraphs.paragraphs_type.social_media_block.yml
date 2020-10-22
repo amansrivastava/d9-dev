@@ -1,0 +1,10 @@
+uuid: 92b2e8cb-fa6e-46fe-be1e-a79b401a51ee
+langcode: en
+status: true
+dependencies: {  }
+id: social_media_block
+label: 'Social Media Block'
+icon_uuid: null
+icon_default: null
+description: 'Social Media blocks for D8cards exercise #02'
+behavior_plugins: {  }

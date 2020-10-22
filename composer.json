@@ -18,7 +18,8 @@
         "drupal/admin_toolbar": "^2.4",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-recommended": "^9",
-        "drupal/mysql56": "^1.0@beta"
+        "drupal/mysql56": "^1.0@beta",
+        "drupal/paragraphs": "^1.12"
     },
     "config": {
         "sort-packages": true
