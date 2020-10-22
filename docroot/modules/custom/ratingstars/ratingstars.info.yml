@@ -1,0 +1,8 @@
+name: Rating Stars
+type: module
+description: Star Rating Formatter
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - fontawesome
