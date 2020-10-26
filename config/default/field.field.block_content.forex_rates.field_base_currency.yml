@@ -1,0 +1,33 @@
+uuid: 4e648f4f-2684-41b9-9bdc-2f5cb192d5c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.forex_rates
+    - field.storage.block_content.field_base_currency
+    - taxonomy.vocabulary.currency
+  content:
+    - 'taxonomy_term:currency:746a51e4-5dcc-48dd-80d0-d6f4db89d009'
+id: block_content.forex_rates.field_base_currency
+field_name: field_base_currency
+entity_type: block_content
+bundle: forex_rates
+label: 'Base Currency'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 746a51e4-5dcc-48dd-80d0-d6f4db89d009
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      currency: currency
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
