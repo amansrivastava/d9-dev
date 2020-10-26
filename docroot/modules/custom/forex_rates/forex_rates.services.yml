@@ -3,4 +3,3 @@ services:
     class: 'Drupal\forex_rates\Service\ForexRatesAPIClient'
     arguments:
       - '@http_client_factory'
-
