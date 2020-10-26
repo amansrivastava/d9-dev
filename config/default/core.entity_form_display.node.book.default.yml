@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.book.field_cover_image
     - field.field.node.book.field_isbn
     - field.field.node.book.field_meta_tags
-    - field.field.node.book.field_star_rating
     - node.type.book
     - workflows.workflow.editorial
   module:
@@ -66,13 +65,6 @@ content:
       sidebar: true
     third_party_settings: {  }
     type: metatag_firehose
-    region: content
-  field_star_rating:
-    weight: 125
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
     region: content
   moderation_state:
     type: moderation_state_default
