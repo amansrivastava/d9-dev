@@ -1,0 +1,25 @@
+uuid: e28d12a5-f51f-420a-bd0d-005633dfceef
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:stock_exchange_rate_card:8fc51d5a-594e-4a5e-9daa-4fd616e3eba6'
+  module:
+    - block_content
+  theme:
+    - bartik
+id: stockratesapple
+theme: bartik
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'block_content:8fc51d5a-594e-4a5e-9daa-4fd616e3eba6'
+settings:
+  id: 'block_content:8fc51d5a-594e-4a5e-9daa-4fd616e3eba6'
+  label: 'Stock rates, Apple'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
