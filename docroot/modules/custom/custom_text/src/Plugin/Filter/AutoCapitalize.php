@@ -39,9 +39,9 @@ class AutoCapitalize extends FilterBase {
    */
   public function process($text, $langcode) {
     // @DCG Process text here.
-    $words = array_map("trim", explode(",",$this->settings['capitalize_words']));
+    $words = array_map("trim", explode(",", $this->settings['capitalize_words']));
 
-    foreach($words as $word){
+    foreach ($words as $word) {
       $text = str_replace($word, ucfirst($word), $text);
     }
     return new FilterProcessResult($text);
