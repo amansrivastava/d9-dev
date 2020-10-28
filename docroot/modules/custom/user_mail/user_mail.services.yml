@@ -1,0 +1,5 @@
+services:
+  logger.channel.user_mail:
+    class: Drupal\Core\Logger\LoggerChannel
+    factory: logger.factory:get
+    arguments: ['user_mail']
