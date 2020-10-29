@@ -4,7 +4,10 @@ namespace Drupal\forecast_api\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Forecast\Forecast;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a weather forecast block.
@@ -15,8 +18,43 @@ use Forecast\Forecast;
  *   category = @Translation("Custom")
  * )
  */
-class WeatherForecastBlock extends BlockBase {
+class WeatherForecastBlock extends BlockBase implements ContainerFactoryPluginInterface{
 
+  /**
+   * The config factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
+   * WeatherForecastBlock constructor.
+   * @param array $configuration
+   * @param $plugin_id
+   * @param $plugin_definition
+   * @param ConfigFactoryInterface $config_factory
+   */
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
+    ConfigFactoryInterface $config_factory)
+  {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->configFactory = $config_factory;
+  }
+
+  /**
+   * @param ContainerInterface $container
+   * @param array $configuration
+   * @param $plugin_id
+   * @param $plugin_definition
+   * @return static
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition)
+  {
+    return new static($configuration, $plugin_id, $plugin_definition, $container->get('config.factory'));
+  }
   /**
    * {@inheritdoc}
    */
@@ -64,9 +102,10 @@ class WeatherForecastBlock extends BlockBase {
     $config = $this->getConfiguration();
     $latitude = $config['latitude'] ?? '0';
     $longitude = $config['longitude'] ?? '0';
+    $config = $this->configFactory->get("forecast_api.settings");
 
     // API key should not be in here - should be an env variable.
-    $forecast = new Forecast('8d5093a7fa1fe90622af9b2f51c2a3dd');
+    $forecast = new Forecast($config->get('api_key'));
     $report = $forecast->get(
       $latitude,
       $longitude,
