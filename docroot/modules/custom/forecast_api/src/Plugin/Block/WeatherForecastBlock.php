@@ -3,10 +3,10 @@
 namespace Drupal\forecast_api\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Forecast\Forecast;
-use Drupal\Core\Config\ConfigFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -18,7 +18,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   category = @Translation("Custom")
  * )
  */
-class WeatherForecastBlock extends BlockBase implements ContainerFactoryPluginInterface{
+class WeatherForecastBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * The config factory.
@@ -29,32 +29,32 @@ class WeatherForecastBlock extends BlockBase implements ContainerFactoryPluginIn
 
   /**
    * WeatherForecastBlock constructor.
+   *
    * @param array $configuration
-   * @param $plugin_id
-   * @param $plugin_definition
-   * @param ConfigFactoryInterface $config_factory
+   *   A configuration array containing information about the plugin instance.
+   * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
+   * @param mixed $plugin_definition
+   *   The plugin implementation definition.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   Config object.
    */
   public function __construct(
     array $configuration,
     $plugin_id,
     $plugin_definition,
-    ConfigFactoryInterface $config_factory)
-  {
+    ConfigFactoryInterface $config_factory) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->configFactory = $config_factory;
   }
 
   /**
-   * @param ContainerInterface $container
-   * @param array $configuration
-   * @param $plugin_id
-   * @param $plugin_definition
-   * @return static
+   * {@inheritDoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition)
-  {
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static($configuration, $plugin_id, $plugin_definition, $container->get('config.factory'));
   }
+
   /**
    * {@inheritdoc}
    */
