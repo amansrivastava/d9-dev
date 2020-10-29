@@ -3,10 +3,11 @@
 namespace Drupal\page_example\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\examples\Utility\DescriptionTemplateTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+
 /**
  * Controller routines for page example routes.
  */
@@ -33,8 +34,10 @@ class PageExampleController extends ControllerBase {
     $this->logger = $logger->get('page_example_module');
   }
 
-  public static function create(ContainerInterface $container)
-  {
+  /**
+   * {@inheritDoc}
+   */
+  public static function create(ContainerInterface $container) {
     return new static($container->get('logger.factory'));
   }
 
