@@ -21,7 +21,8 @@
         "drupal/core-recommended": "^9",
         "drupal/fontawesome": "^2.17",
         "drupal/mysql56": "^1.0@beta",
-        "drupal/paragraphs": "^1.12"
+        "drupal/paragraphs": "^1.12",
+        "wikimedia/composer-merge-plugin": "^1.4"
     },
     "config": {
         "sort-packages": true
