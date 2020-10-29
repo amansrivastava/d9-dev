@@ -1,0 +1,7 @@
+forex_rates.settings:
+  path: '/admin/config/system/forex_settings'
+  defaults:
+    _title: 'Forex API Settings'
+    _form: 'Drupal\forex_rates\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

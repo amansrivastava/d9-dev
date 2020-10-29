@@ -1,0 +1,8 @@
+services:
+  forex_rates.forex_update:
+    class: \Drupal\forex_rates\Commands\ForexRatesCommands
+    arguments:
+      - '@entity_type.manager'
+      - '@forex_rates.rate_api_client'
+    tags:
+      - { name: drush.command }

@@ -1,0 +1,25 @@
+uuid: eeaeafd9-d410-477c-a15a-b77d8856d5a9
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:forex_rates:2ee449a1-06b8-47d6-bc05-efe2d1f4664b'
+  module:
+    - block_content
+  theme:
+    - bartik
+id: usdtoaudgbpandinr
+theme: bartik
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'block_content:2ee449a1-06b8-47d6-bc05-efe2d1f4664b'
+settings:
+  id: 'block_content:2ee449a1-06b8-47d6-bc05-efe2d1f4664b'
+  label: 'USD to AUD,GBP and INR'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

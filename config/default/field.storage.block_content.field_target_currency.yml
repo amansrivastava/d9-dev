@@ -1,0 +1,20 @@
+uuid: c0d08e2c-3192-4139-95e2-630e26a28231
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - taxonomy
+id: block_content.field_target_currency
+field_name: field_target_currency
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

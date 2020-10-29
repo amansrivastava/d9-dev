@@ -1,0 +1,5 @@
+forex_rates.settings:
+  title: Forex API Settings
+  parent: system.admin_config_system
+  route_name: forex_rates.settings
+  weight: 10

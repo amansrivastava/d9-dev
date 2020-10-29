@@ -1,0 +1,5 @@
+services:
+  forex_rates.rate_api_client:
+    class: 'Drupal\forex_rates\Service\ForexRatesAPIClient'
+    arguments:
+      - '@http_client_factory'
