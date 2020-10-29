@@ -1,6 +1,4 @@
 module:
-  admin_toolbar: 0
-  admin_toolbar_tools: 0
   autosave_form: 0
   bg_image_formatter: 0
   blazy: 0
