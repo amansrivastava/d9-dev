@@ -5,6 +5,7 @@ namespace Drupal\forecast_api\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 use Forecast\Forecast;
+
 /**
  * Provides a weather forecast block.
  *
@@ -21,16 +22,15 @@ class WeatherForecastBlock extends BlockBase {
    */
   public function defaultConfiguration() {
     return [
-      'latitude' => $this->t(''),
-      'longitude' => $this->t('')
+      'latitude' => "",
+      'longitude' => "",
     ];
   }
 
   /**
    * {@inheritdoc}
    */
-  public function blockForm($form, FormStateInterface $form_state)
-  {
+  public function blockForm($form, FormStateInterface $form_state) {
     parent::blockForm($form, $form_state);
 
     $config = $this->getConfiguration();
@@ -65,12 +65,12 @@ class WeatherForecastBlock extends BlockBase {
     $latitude = $config['latitude'] ?? '0';
     $longitude = $config['longitude'] ?? '0';
 
-    // API key should not be in here - should be an env variable
+    // API key should not be in here - should be an env variable.
     $forecast = new Forecast('8d5093a7fa1fe90622af9b2f51c2a3dd');
     $report = $forecast->get(
       $latitude,
       $longitude,
-      null,
+      NULL,
       [
         'units' => 'si',
       ]
