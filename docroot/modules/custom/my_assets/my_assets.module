@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for my_assets module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+function my_assets_element_info_alter(array &$types)
+{
+  if (isset($types['table'])) {
+    $types['table']['#attached']['library'][] = 'my_assets/custom-tables';
+  }
+}
+
+function my_assets_block_view_block_content_alter(
+  array &$build,
+  \Drupal\Core\Block\BlockPluginInterface $block
+) {
+  $build['#attached']['library'][] = 'my_assets/custom-blocks';
+}
