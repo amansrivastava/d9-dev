@@ -2,10 +2,12 @@
 
 namespace Drupal\user_mail\Plugin\QueueWorker;
 
-use Drupal\Core\Entity\EntityTypeManager;
-use Drupal\Core\Mail\MailManager;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Queue\QueueWorkerBase;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -19,48 +21,69 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class WelcomeMail extends QueueWorkerBase implements ContainerFactoryPluginInterface {
 
-  /**
-   * Mail manager for sending mail.
-   *
-   * @var \Drupal\Core\Mail\MailManager
-   */
-  private $mailManager;
 
   /**
-   * EntityManager Object for loading User.
+   * The user storage.
    *
-   * @var \Drupal\Core\Entity\EntityTypeManager
+   * @var \Drupal\Core\Entity\EntityStorageInterface
    */
-  private $entityTypeManager;
+  protected $storage;
+
+  /**
+   * A logger instance.
+   *
+   * @var \Psr\Log\LoggerInterface
+   */
+  protected $logger;
+
+  /**
+   * The mail manager
+   *
+   * @var \Drupal\Core\Mail\MailManagerInterface
+   */
+  protected $mailManager;
+
+  /**
+   * The config factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
 
   /**
    * {@inheritDoc}
    *
-   * @param \Drupal\Core\Mail\MailManager $mailManager
-   *   For sending mail.
-   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
-   *   For loading user object.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager.
+   * @param \Psr\Log\LoggerInterface $logger
+   *   A logger instance.
+   * @param \Drupal\Core\Mail\MailManagerInterface $mail_manager
+   *   The mail manager.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The configuration factory.
    */
   public function __construct(
-    MailManager $mailManager,
-    EntityTypeManager $entityTypeManager
+    EntityTypeManagerInterface $entity_type_manager,
+    LoggerInterface $logger,
+    MailManagerInterface $mail_manager,
+    ConfigFactoryInterface $config_factory
   ) {
-    $this->mailManager = $mailManager;
-    $this->entityTypeManager = $entityTypeManager;
+    $this->storage = $entity_type_manager->getStorage('user');
+    $this->logger = $logger;
+    $this->mailManager = $mail_manager;
+    $this->configFactory = $config_factory;
   }
 
   /**
-   * {@inheritDoc}
+   * {@inheritdoc}
    */
-  public static function create(
-    ContainerInterface $container,
-    array $configuration,
-    $plugin_id,
-    $plugin_definition
-  ) {
-    $mailManager = \Drupal::service('plugin.manager.mail');
-    $entityTypeManager = \Drupal::service('entity_type.manager');
-    return new static($mailManager, $entityTypeManager);
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $container->get('entity_type.manager'),
+      $container->get('logger.factory')->get('user_mail'),
+      $container->get('plugin.manager.mail'),
+      $container->get('config.factory')
+    );
   }
 
   /**
@@ -68,8 +91,8 @@ class WelcomeMail extends QueueWorkerBase implements ContainerFactoryPluginInter
    */
   public function processItem($userId) {
     /** @var \Drupal\user\Entity\User $user */
-    $user = $this->entityTypeManager->getStorage('user')->load($userId);
-    $config = \Drupal::config("system.site");
+    $user = $this->storage->load($userId);
+    $config = $this->configFactory->get("system.site");
     $mail = $this->mailManager->mail(
       'user_mail',
       'welcome_mail',
@@ -80,12 +103,11 @@ class WelcomeMail extends QueueWorkerBase implements ContainerFactoryPluginInter
       TRUE
     );
 
-    $logger = \Drupal::logger('user_mail');
     if ($mail['result'] !== TRUE) {
-      $logger->error('There was a problem sending the mail to ' . $user->getEmail());
+      $this->logger->error('There was a problem sending the mail to ' . $user->getEmail());
     }
     else {
-      $logger->info('The mail has been sent to ' . $user->getEmail());
+      $this->logger->info('The mail has been sent to ' . $user->getEmail());
     }
 
   }
