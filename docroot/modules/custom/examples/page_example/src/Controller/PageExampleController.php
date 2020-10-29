@@ -4,14 +4,39 @@ namespace Drupal\page_example\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\examples\Utility\DescriptionTemplateTrait;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 /**
  * Controller routines for page example routes.
  */
 class PageExampleController extends ControllerBase {
 
   use DescriptionTemplateTrait;
+
+  /**
+   * A logger instance.
+   *
+   * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
+   */
+  protected $logger;
+
+  /**
+   * {@inheritDoc}
+   *
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger
+   *   A logger instance.
+   */
+  public function __construct(
+    LoggerChannelFactoryInterface $logger
+  ) {
+    $this->logger = $logger->get('page_example_module');
+  }
+
+  public static function create(ContainerInterface $container)
+  {
+    return new static($container->get('logger.factory'));
+  }
 
   /**
    * {@inheritdoc}
@@ -31,6 +56,7 @@ class PageExampleController extends ControllerBase {
    * appropriate blocks, navigation, and styling.
    */
   public function simple() {
+    $this->logger->notice('Add log using DI.');
     return [
       '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
     ];
