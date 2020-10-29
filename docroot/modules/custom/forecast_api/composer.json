@@ -1,6 +1,6 @@
 {
   "name": "drupal/forecast_api",
-  "type": "drupal-module",
+  "type": "drupal-custom-module",
   "description": "Forcast API call",
   "keywords": ["Drupal"],
   "require": {
