@@ -2,8 +2,8 @@
 
 namespace Drupal\Tests\examples\Kernel;
 
-use Drupal\KernelTests\KernelTestBase;
 use Drupal\examples_description_test\Controller\SampleExampleController;
+use Drupal\KernelTests\KernelTestBase;
 
 /**
  * Test of the Description Trait.
