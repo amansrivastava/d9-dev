@@ -1,0 +1,13 @@
+administer contact:
+  title: 'Administer contact settings'
+  restrict access: true
+access contact overview:
+  title: 'Access contact overview page'
+delete contact:
+  title: Delete contact
+create contact:
+  title: Create contact
+view contact:
+  title: View contact
+edit contact:
+  title: Edit contact

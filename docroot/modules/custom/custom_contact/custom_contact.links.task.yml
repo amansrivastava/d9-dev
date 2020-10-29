@@ -1,0 +1,22 @@
+entity.contact.settings:
+  title: Settings
+  route_name: entity.contact.settings
+  base_route: entity.contact.settings
+entity.contact.view:
+  title: View
+  route_name: entity.contact.canonical
+  base_route: entity.contact.canonical
+entity.contact.edit_form:
+  title: Edit
+  route_name: entity.contact.edit_form
+  base_route: entity.contact.canonical
+entity.contact.delete_form:
+  title: Delete
+  route_name: entity.contact.delete_form
+  base_route: entity.contact.canonical
+  weight: 10
+entity.contact.collection:
+  title: Contact
+  route_name: entity.contact.collection
+  base_route: system.admin_content
+  weight: 10
