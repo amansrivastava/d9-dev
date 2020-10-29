@@ -1,0 +1,23 @@
+uuid: 6c5aab19-7f16-4357-a7be-f896b91f05ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_star_rating
+    - node.type.book
+id: node.book.field_star_rating
+field_name: field_star_rating
+entity_type: node
+bundle: book
+label: 'Star Rating'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: !!float 5
+  prefix: ''
+  suffix: ''
+field_type: decimal
