@@ -4,10 +4,10 @@ namespace Drupal\user_mail\Plugin\QueueWorker;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Queue\QueueWorkerBase;
-use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -37,7 +37,7 @@ class WelcomeMail extends QueueWorkerBase implements ContainerFactoryPluginInter
   protected $logger;
 
   /**
-   * The mail manager
+   * The mail manager.
    *
    * @var \Drupal\Core\Mail\MailManagerInterface
    */
@@ -106,7 +106,7 @@ class WelcomeMail extends QueueWorkerBase implements ContainerFactoryPluginInter
     if ($mail['result'] !== TRUE) {
       return $this->logger->error('There was a problem sending the mail to ' . $user->getEmail());
     }
-      return $this->logger->info('The mail has been sent to ' . $user->getEmail());
+    return $this->logger->info('The mail has been sent to ' . $user->getEmail());
 
   }
 
