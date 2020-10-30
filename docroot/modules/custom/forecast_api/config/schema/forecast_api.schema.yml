@@ -1,0 +1,10 @@
+block.settings.forecast_api_weather_forecast:
+  type: block_settings
+  label: 'Weather Forecast block'
+  mapping:
+    longitude:
+      type: string
+      label: Longitude
+    latitude:
+      type: string
+      label: Latitude
