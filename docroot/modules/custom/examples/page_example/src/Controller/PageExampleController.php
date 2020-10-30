@@ -3,9 +3,7 @@
 namespace Drupal\page_example\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\examples\Utility\DescriptionTemplateTrait;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 /**
@@ -33,7 +31,7 @@ class PageExampleController extends ControllerBase {
    * appropriate blocks, navigation, and styling.
    */
   public function simple() {
-    $this->getLogger('page_example_module')->notice('Add log using DI.');
+    $this->getLogger('page_example')->notice('Add log using DI.');
     return [
       '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
     ];
