@@ -1,0 +1,25 @@
+uuid: f9497ac4-57ab-4012-9c7d-6e405591f42c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:forex_rates:8ad18379-8158-4a09-b595-a5c76a0c85af'
+  module:
+    - block_content
+  theme:
+    - bartik
+id: usdtocad
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:8ad18379-8158-4a09-b595-a5c76a0c85af'
+settings:
+  id: 'block_content:8ad18379-8158-4a09-b595-a5c76a0c85af'
+  label: 'USD to CAD'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

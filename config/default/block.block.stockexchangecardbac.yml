@@ -1,0 +1,25 @@
+uuid: 12260009-6165-41ae-a4b9-beac041ffca6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:stock_exchange_rate_card:3687775a-634e-4680-a2c7-3f4213f01781'
+  module:
+    - block_content
+  theme:
+    - bartik
+id: stockexchangecardbac
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:3687775a-634e-4680-a2c7-3f4213f01781'
+settings:
+  id: 'block_content:3687775a-634e-4680-a2c7-3f4213f01781'
+  label: 'Stock Exchange Card, BAC'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

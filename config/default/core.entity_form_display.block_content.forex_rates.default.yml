@@ -1,0 +1,36 @@
+uuid: 4c2b7781-86b2-4fb9-962e-891a1a09e5ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.forex_rates
+    - field.field.block_content.forex_rates.field_base_currency
+    - field.field.block_content.forex_rates.field_forex_rates
+    - field.field.block_content.forex_rates.field_target_currency
+id: block_content.forex_rates.default
+targetEntityType: block_content
+bundle: forex_rates
+mode: default
+content:
+  field_base_currency:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_target_currency:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  field_forex_rates: true
