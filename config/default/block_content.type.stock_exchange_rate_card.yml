@@ -1,0 +1,8 @@
+uuid: 0fcfbbb2-a851-41c7-ac98-9381704f9220
+langcode: en
+status: true
+dependencies: {  }
+id: stock_exchange_rate_card
+label: 'Stock Exchange Rate Card'
+revision: 0
+description: 'Stock Exchange Rate Card custom block.'
