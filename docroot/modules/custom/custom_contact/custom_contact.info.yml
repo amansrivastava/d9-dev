@@ -1,0 +1,7 @@
+name: Custom Contact
+type: module
+description: 'Provides a contact entity.'
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9
+configure: entity.contact.settings
