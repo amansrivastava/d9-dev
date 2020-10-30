@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for User Email module.
+ */
+use Drupal\Core\Queue\QueueFactory;
+use Drupal\Core\Queue\QueueInterface;
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function user_mail_user_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  /** @var QueueFactory $queueFactory */
+  $queueFactory = \Drupal::service('queue');
+  /** @var QueueInterface $queue */
+  $queue = $queueFactory->get('user_mail_welcomemail');
+
+  $queue->createItem($entity->id());
+}
+
+function user_mail_mail($key, &$message, $params)
+{
+  if ($key === 'welcome_mail') {
+    $message['from'] = 'admin@d9site.com';
+    $message['subject'] = 'Welcome to my D8Cards implementation on D9!';
+    $message['body'][] = $params['message'];
+  }
+}

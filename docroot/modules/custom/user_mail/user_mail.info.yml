@@ -1,0 +1,6 @@
+name: User Email
+type: module
+description: Send mail on user registratio.
+package: User
+core: 8.x
+core_version_requirement: ^8 || ^9
