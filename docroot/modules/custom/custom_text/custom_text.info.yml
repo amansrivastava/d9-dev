@@ -1,0 +1,6 @@
+name: Custom Text
+type: module
+description: Custom Text Filter Plugin
+package: filter
+core: 8.x
+core_version_requirement: ^8 || ^9
