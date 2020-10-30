@@ -7,7 +7,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Queue\QueueWorkerBase;
-use Psr\Log\LoggerInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -32,7 +32,7 @@ class WelcomeMail extends QueueWorkerBase implements ContainerFactoryPluginInter
   /**
    * A logger instance.
    *
-   * @var \Psr\Log\LoggerInterface
+   * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
    */
   protected $logger;
 
@@ -55,7 +55,7 @@ class WelcomeMail extends QueueWorkerBase implements ContainerFactoryPluginInter
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
-   * @param \Psr\Log\LoggerInterface $logger
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger
    *   A logger instance.
    * @param \Drupal\Core\Mail\MailManagerInterface $mail_manager
    *   The mail manager.
@@ -64,7 +64,7 @@ class WelcomeMail extends QueueWorkerBase implements ContainerFactoryPluginInter
    */
   public function __construct(
     EntityTypeManagerInterface $entity_type_manager,
-    LoggerInterface $logger,
+    LoggerChannelFactoryInterface $logger,
     MailManagerInterface $mail_manager,
     ConfigFactoryInterface $config_factory
   ) {
@@ -104,11 +104,9 @@ class WelcomeMail extends QueueWorkerBase implements ContainerFactoryPluginInter
     );
 
     if ($mail['result'] !== TRUE) {
-      $this->logger->error('There was a problem sending the mail to ' . $user->getEmail());
+      return $this->logger->error('There was a problem sending the mail to ' . $user->getEmail());
     }
-    else {
-      $this->logger->info('The mail has been sent to ' . $user->getEmail());
-    }
+      return $this->logger->info('The mail has been sent to ' . $user->getEmail());
 
   }
 
