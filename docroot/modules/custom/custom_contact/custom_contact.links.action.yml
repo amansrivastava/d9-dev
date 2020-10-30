@@ -1,0 +1,5 @@
+contact.add_form:
+  route_name: entity.contact.add_form
+  title: 'Add contact'
+  appears_on:
+    - entity.contact.collection

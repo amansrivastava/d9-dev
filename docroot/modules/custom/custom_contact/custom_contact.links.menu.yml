@@ -1,0 +1,10 @@
+entity.contact.settings:
+  title: Contact
+  description: Configure a Contact entity type
+  route_name:  entity.contact.settings
+  parent: system.admin_structure
+entity.contact.collection:
+  title: Contacts
+  description: List of contacts
+  route_name: entity.contact.collection
+  parent: system.admin_content

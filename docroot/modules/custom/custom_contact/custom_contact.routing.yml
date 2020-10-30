@@ -1,0 +1,7 @@
+entity.contact.settings:
+  path: 'admin/structure/contact'
+  defaults:
+    _form: '\Drupal\custom_contact\Form\ContactSettingsForm'
+    _title: 'Contact'
+  requirements:
+    _permission: 'administer contact'
