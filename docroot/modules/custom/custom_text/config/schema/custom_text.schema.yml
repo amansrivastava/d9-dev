@@ -1,7 +1,0 @@
-filter_settings.custom_text_auto_capitalize:
-  type: filter
-  label: 'Auto Capitalize filter'
-  mapping:
-    capitalize_words:
-      type: string
-      label: Words to Capitalize
