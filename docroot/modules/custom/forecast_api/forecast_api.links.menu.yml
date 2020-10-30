@@ -1,0 +1,5 @@
+forecast_api.settings:
+  title: Forecast API Settings
+  parent: system.admin_config_system
+  route_name: forecast_api.settings
+  weight: 10

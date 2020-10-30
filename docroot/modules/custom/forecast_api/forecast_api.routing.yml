@@ -1,0 +1,7 @@
+forecast_api.settings:
+  path: '/admin/config/system/settings'
+  defaults:
+    _title: 'Forecast API Settings'
+    _form: 'Drupal\forecast_api\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'
