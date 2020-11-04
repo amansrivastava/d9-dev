@@ -1,0 +1,6 @@
+name: Custom Hook init
+type: module
+description: Custom HOOK_init implementation.
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9
