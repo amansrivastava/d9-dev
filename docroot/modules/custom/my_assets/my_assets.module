@@ -9,6 +9,12 @@
  * @see https://www.drupal.org/node/2217931
  */
 
+/**
+ * Implements hook_element_info_alter().
+ *
+ * @param array $info
+ *   An associative array with structure identical to that of the return value of \Drupal\Core\Render\ElementInfoManagerInterface::getInfo().
+ */
 function my_assets_element_info_alter(array &$types)
 {
   if (isset($types['table'])) {
@@ -16,6 +22,14 @@ function my_assets_element_info_alter(array &$types)
   }
 }
 
+/**
+ * Implements hook_block_view_BASE_BLOCK_ID_alter().
+ *
+ * @param array $build
+ *   A renderable array of data, as returned from the build() implementation of the plugin that defined the block:
+ * @param \Drupal\Core\Block\BlockPluginInterface $block
+ *   The block plugin instance.
+ */
 function my_assets_block_view_block_content_alter(
   array &$build,
   \Drupal\Core\Block\BlockPluginInterface $block
