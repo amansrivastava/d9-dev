@@ -5,7 +5,7 @@ namespace Drupal\page_example\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\examples\Utility\DescriptionTemplateTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\EventDispatcher\Event;
+use Drupal\page_example\Event\PageEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
@@ -19,14 +19,14 @@ class PageExampleController extends ControllerBase {
   /**
    * Event Dispatcher Object.
    *
-   * @var \Symfony\Component\EventDispatcher\EventDispatcherInterface
+   * @var \Symfony\Contracts\EventDispatcher\EventDispatcherInterface
    */
   private $eventDispatcher;
 
   /**
    * PageExampleController constructor.
    *
-   * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $eventDispatcher
+   * @param \Symfony\Contracts\EventDispatcher\EventDispatcherInterface $eventDispatcher
    *   Event Dispatcher object.
    */
   public function __construct(EventDispatcherInterface $eventDispatcher) {
@@ -58,7 +58,7 @@ class PageExampleController extends ControllerBase {
    * appropriate blocks, navigation, and styling.
    */
   public function simple() {
-    $event = new Event();
+    $event = new PageEvent();
     $this->eventDispatcher->dispatch("simple_page_load", $event);
     $this->getLogger('page_example')->notice('Add log using DI.');
     return [

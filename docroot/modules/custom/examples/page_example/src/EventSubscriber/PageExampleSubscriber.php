@@ -4,6 +4,7 @@ namespace Drupal\page_example\EventSubscriber;
 
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Drupal\page_example\Event\PageEvent;
 
 /**
  * Page Example event subscriber.
@@ -39,7 +40,7 @@ class PageExampleSubscriber implements EventSubscriberInterface {
   /**
    * Add log on page load.
    */
-  public function logPageLoad() {
+  public function logPageLoad(PageEvent $event) {
     $this->loggerFactory->get("event_subscriber")->debug("simple_page_load subscriber logged.");
   }
 
