@@ -4,8 +4,8 @@ namespace Drupal\page_example\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\examples\Utility\DescriptionTemplateTrait;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\page_example\Event\PageEvent;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 

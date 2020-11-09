@@ -3,8 +3,8 @@
 namespace Drupal\page_example\EventSubscriber;
 
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\page_example\Event\PageEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * Page Example event subscriber.
