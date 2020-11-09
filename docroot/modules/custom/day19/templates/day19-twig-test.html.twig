@@ -1,1 +1,20 @@
-Your template goes here..
+{% set cleanedClasses = [] %}
+{% for class in classes %}
+  printing classes;
+  {% set cleanedClasses = cleanedClasses|merge([class|clean_class]) %}
+{% endfor %}
+
+{% if var1 %}
+  <p {{ attributes.addClass(cleanedClasses) }}>Var1:- {{ var1 }}</p>
+{% endif %}
+
+<p>Value of $var2[3]['g']:- {{ var2.3.g }}</p>
+
+{% set minionClasses = [] %}
+{% for i in 0..myclasscount %}
+  {% set minionClasses = minionClasses|merge(['minion'~i]) %}
+{% endfor %}
+
+<div {{ attributes.addClass(minionClasses).removeClass(cleanedClasses) }}>
+  {{ 'Hello'|t }}
+</div>
