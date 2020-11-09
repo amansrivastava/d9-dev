@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for my_assets module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+/**
+ * Implements hook_element_info_alter().
+ *
+ * @param array $types
+ *   An associative array with structure identical to that of the return value of \Drupal\Core\Render\ElementInfoManagerInterface::getInfo().
+ */
+function my_assets_element_info_alter(array &$types)
+{
+  if (isset($types['table'])) {
+    $types['table']['#attached']['library'][] = 'my_assets/custom-tables';
+  }
+}
+
+/**
+ * Implements hook_block_view_BASE_BLOCK_ID_alter().
+ *
+ * @param array $build
+ *   A renderable array of data, as returned from the build() implementation of the plugin that defined the block:
+ * @param \Drupal\Core\Block\BlockPluginInterface $block
+ *   The block plugin instance.
+ */
+function my_assets_block_view_block_content_alter(
+  array &$build,
+  \Drupal\Core\Block\BlockPluginInterface $block
+) {
+  $build['#attached']['library'][] = 'my_assets/custom-blocks';
+}
