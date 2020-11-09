@@ -19,14 +19,14 @@ class PageExampleController extends ControllerBase {
   /**
    * Event Dispatcher Object.
    *
-   * @var \Symfony\Contracts\EventDispatcher\EventDispatcherInterface
+   * @var \Symfony\Component\EventDispatcher\EventDispatcherInterface
    */
   private $eventDispatcher;
 
   /**
    * PageExampleController constructor.
    *
-   * @param \Symfony\Contracts\EventDispatcher\EventDispatcherInterface $eventDispatcher
+   * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $eventDispatcher
    *   Event Dispatcher object.
    */
   public function __construct(EventDispatcherInterface $eventDispatcher) {
