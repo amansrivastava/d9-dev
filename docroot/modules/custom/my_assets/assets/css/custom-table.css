@@ -1,0 +1,6 @@
+td:nth-child(even) {
+  background: #ccc;
+}
+td:nth-child(odd) {
+  background: #fff;
+}

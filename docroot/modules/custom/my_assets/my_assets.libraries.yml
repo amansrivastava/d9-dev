@@ -1,0 +1,9 @@
+custom-tables:
+  version: 1.0
+  css:
+    theme:
+      assets/css/custom-tables.css: {}
+custom-blocks:
+  version: 1.0
+  js:
+    assets/js/custom-blocks.js: {}
