@@ -30,6 +30,8 @@ class MyBlock extends BlockBase {
       '#title' => $this->t('Test Title'),
       '#var1' => $this->t('Test Description'),
       '#var2' => $some_array,
+      '#classes' => ["some-random-class-name", "class-name2", "another-class"],
+      '#myclasscount' => 10,
     ];
   }
 
