@@ -20,7 +20,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * )
  */
 class WelcomeMail extends QueueWorkerBase implements ContainerFactoryPluginInterface {
-  
+
   /**
    * The user storage.
    *
